@@ -298,7 +298,7 @@ async function saveData() {
         const image = document.getElementById("image").value;
         const obj = { name, img: image };
         const method = studentId ? "PUT" : "POST";
-        const url = studentId ? `https://midnight-tidal-shadow.glitch.me/students${studentId}` : `https://midnight-tidal-shadow.glitch.me/students
+        const url = studentId ? `https://midnight-tidal-shadow.glitch.me/students/${studentId}` : `https://midnight-tidal-shadow.glitch.me/students/`
         try {
             let response = await fetch(url, {
                 method,
@@ -327,7 +327,7 @@ function clearInputs() {
 }
 
 async function deleteData(id) {
-    await fetch(`https://midnight-tidal-shadow.glitch.me/students${id}`, { method: "DELETE" });
+    await fetch(`https://midnight-tidal-shadow.glitch.me/students/${id}`, { method: "DELETE" });
     clearInputs();
     alert("Data Delete Successfully");
     fetchData();
@@ -336,7 +336,7 @@ async function deleteData(id) {
 async function editData(id) {
     document.getElementById("nameError").innerText = "";
     document.getElementById("imageError").innerText = "";
-    const response = await fetch(`https://midnight-tidal-shadow.glitch.me/students${id}`);
+    const response = await fetch(`https://midnight-tidal-shadow.glitch.me/students/${id}`);
     const student = await response.json();
     document.getElementById("id").value = student.id;
     let name = document.getElementById("name");
