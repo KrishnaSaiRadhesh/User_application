@@ -1,5 +1,5 @@
 async function getData() {
-    let response = await fetch("https://midnight-tidal-shadow.glitch.me/");
+    let response = await fetch("https://midnight-tidal-shadow.glitch.me/students");
     try {
         if (!response.ok) {
             throw new Error(response.statusText);
